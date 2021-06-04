@@ -10,7 +10,7 @@ module.exports = {
   networks: {
     //Dusty
     dusty: {
-      url: "https://rpc.dusty.plasmnet.io:8545",
+      url: "http://localhost:9933",
       chainid: 80,
       accounts: [
         "0x60ed0dd24087f00faea4e2b556c74ebfa2f0e705f8169733b01530ce4c619883",
