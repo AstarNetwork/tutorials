@@ -2,25 +2,6 @@ import { patract, network } from "redspot";
 
 const { getContractFactory } = patract;
 const { createSigner, keyring, api } = network;
-const { extendEnvironment } = require("redspot/config");
-import { WsProvider } from "@polkadot/api";
-import type { RegistryTypes } from "@polkadot/types/types";
-import typeDefs from "@plasm/types";
-import { ApiPromise } from "redspot/types";
-
-const { ApiPromise } = require("@polkadot/api");
-
-extendEnvironment((rse) => {
-  const provider = new WsProvider("ws://127.0.0.1:9944");
-  const types = typeDefs.dustyDefinitions;
-  const api = new ApiPromise({
-    provider,
-    types: {
-      ...(types as RegistryTypes),
-    },
-  });
-  rse.api = api;
-});
 
 const uri =
   "bottom drive obey lake curtain smoke basket hold race lonely fit walk//Alice";
