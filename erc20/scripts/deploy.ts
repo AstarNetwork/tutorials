@@ -1,10 +1,10 @@
 import { patract, network } from "redspot";
+require("dotenv").config();
 
 const { getContractFactory } = patract;
 const { createSigner, keyring, api } = network;
 
-const uri =
-  "bottom drive obey lake curtain smoke basket hold race lonely fit walk//Alice";
+const uri: string = process.env.MNEMONIC!;
 
 async function run() {
   await api.isReady;

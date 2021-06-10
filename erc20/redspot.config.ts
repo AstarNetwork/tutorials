@@ -2,6 +2,7 @@ import { RedspotUserConfig } from "redspot/types";
 import "@redspot/patract";
 import "@redspot/chai";
 import "@redspot/gas-reporter";
+require("dotenv").config();
 
 export default {
   defaultNetwork: "development",
@@ -12,10 +13,10 @@ export default {
     },
   },
   networks: {
-    plasm: {
+    dusty: {
       endpoint: "ws://127.0.0.1:9944",
       gasLimit: "400000000000",
-      accounts: ["//Alice"],
+      accounts: ["aeb1K2DkaDS82wnCaARitF7G8QjSKSxJQpb8u4nGuQf3p2F"],
       types: {
         AccountInfo: "AccountInfoWithProviders",
         AuthorityId: "AccountId",
