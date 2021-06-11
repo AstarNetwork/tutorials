@@ -1,4 +1,0 @@
-# each folder is it's own tutorial so .gitignore per folder will be used.
-
-# macOS
-.DS_Store
