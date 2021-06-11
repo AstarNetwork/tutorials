@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es2017",
     "module": "commonjs",
     "strict": true,
     "esModuleInterop": true,
@@ -8,7 +8,8 @@
     "noImplicitAny": false
   },
   "include": [
-    "**/*.ts"
+    "**/*.ts",
+    "node_modules/@plasm/types"
   ],
   "exclude": [
     "node_modules"
