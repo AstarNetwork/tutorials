@@ -2,6 +2,9 @@ import { RedspotUserConfig } from "redspot/types";
 import "@redspot/patract";
 import "@redspot/chai";
 import "@redspot/gas-reporter";
+import "@redspot/watcher";
+import "@redspot/explorer";
+import "@redspot/decimals";
 require("dotenv").config();
 
 export default {
@@ -16,7 +19,7 @@ export default {
     dusty: {
       endpoint: "ws://127.0.0.1:9944",
       gasLimit: "400000000000",
-      accounts: ["aeb1K2DkaDS82wnCaARitF7G8QjSKSxJQpb8u4nGuQf3p2F"],
+      accounts: ["//Alice"],
       types: {
         AccountInfo: "AccountInfoWithProviders",
         AuthorityId: "AccountId",
