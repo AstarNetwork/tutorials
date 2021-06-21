@@ -1,22 +1,28 @@
-import { patract, network } from "redspot";
-require("dotenv").config();
+import { network, patract } from "redspot";
 
 const { getContractFactory } = patract;
-const { api } = network;
-
-const signer = "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"; // Alice Address
+const { addPair, getSigners, keyring, api } = network;
 
 async function run() {
   await api.isReady;
 
-  const contractFactory = await getContractFactory("erc20", signer);
+  // The redspot signer supports passing in an address. If you want to use  substrate uri, you can do it like this:
+  // const signer = addPair(keyring.createFromUri((process.env as any).MNEMONIC));
+  // Or get the configured account from redspot config:
+  const signer = (await getSigners())[0];
 
-  const balance = await api.query.system.account(signer);
+  const contractFactory = await getContractFactory("erc20", signer.address);
+
+  const balance = await api.query.system.account(signer.address);
+
   console.log("Balance: ", balance.toHuman());
 
-  const contract = await contractFactory.deployed("new", "1000000", {
-    gasLimit: "200000000000",
-    value: "100000000000",
+  // The `deploy` method will attempt to deploy a new contract.
+  // The `deployed` method will first find out if the same contract already exists based on the parameters.
+  // If the contract exists, it will be returned, otherwise a new contract will be created.
+  const contract = await contractFactory.deploy("new", "1000000", {
+    gasLimit: "400000000000",
+    value: "100000 UNIT",
   });
 
   console.log("");
